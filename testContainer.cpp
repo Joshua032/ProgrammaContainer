@@ -7,10 +7,19 @@
 
 class test : public testing::Test
 {
-	private:
+	public:
+		Container *c;
+		
+	virtual void SetUp(void)
+	{
+		c = new Container();
+		
+	}
 	
-		
-		
+	virtual void TearDown(void)
+	{
+		delete c;	
+	}		
 };
 
 TEST(Conteiner, costruttoresenzaparametro)
