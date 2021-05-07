@@ -28,21 +28,21 @@ class test : public testing::Test
 	}		
 };
 
-TEST(Conteiner, costruttoresenzaparametro)
+TEST(Conteiner, costruttore_senza_parametri)
 {
 	Conteiner c;
 	ASSERT_TRUE(c.getCodice == 0);
 	ASSERT_TRUE(c.getDescrizione == 'a');
 }
 
-TEST(Conteiner, costruttoreconparametro)
+TEST(Conteiner, costruttore_senza_parametri)
 {
 	c = new Conteiner();
 	ASSERT_FALSE(c.getCodice() == 10);
 	ASSERT_FALSE(c.getDescrizione() == 'b');
 }
 
-TEST(Conteiner, metodoConteiner_senza_parametri)
+TEST(Conteiner, metodo_Conteiner)
 {
 	c = new Container(0, 'a')
 
@@ -50,7 +50,7 @@ TEST(Conteiner, metodoConteiner_senza_parametri)
 	ASSERT_TRUE(c.getDescrizione() == 'a');
 }
 
-TEST(Conteiner, metodoConteiner_con_parametri)
+TEST(Conteiner, metodo_Conteiner_con_parametri)
 {
 	c = new Container(10, 'c');
 	ASSERT_FALSE(c.getCodice == 0);
