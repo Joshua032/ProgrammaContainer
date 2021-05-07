@@ -8,16 +8,17 @@
 class test : public testing::Test
 {
 	private:
-		int codice;
-		char descrizione;
+	
+		
+		
 };
 
 TEST(Conteiner, costruttoresenzaparametro)
 {
-	int codice = 0;
-	char descrizione = 'a';
-	ASSERT_TRUE(codice == 0);
-	ASSERT_TRUE(descrizione == 'a');
+	Conteiner c;
+
+	ASSERT_TRUE(c.getCodice == 0);
+	ASSERT_TRUE(c.getDescrizione == 'a');
 }
 
 TEST(Conteiner, costruttoreconparametro)
