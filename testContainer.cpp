@@ -5,97 +5,88 @@
 
 #include "gtest/gtest.h"
 
-class test : public testing::Test
+class testContainer : public testing::Test
 {
-	public:
-		Container *c;
-		Piazzola *p;
-		Deposito *d;
-		
+public:
+	Conteiner* c;
+	Piazzola* p;
+	Deposito* d;
+
 	virtual void SetUp(void)
 	{
-		c = new Container();
+		c = new Conteiner();
 		p = new Piazzola();
-		d = new Deposito();
-		
+		//d = new Deposito();
+
 	}
-	
+
 	virtual void TearDown(void)
 	{
 		delete c;
 		delete p;
-		delete d;
-	}		
+		//delete d;
+	}
 };
 
 TEST(Conteiner, costruttore_senza_parametri)
 {
 	Conteiner c;
-	ASSERT_TRUE(c.getCodice == 0);
-	ASSERT_TRUE(c.getDescrizione == 'a');
-}
 
-TEST(Conteiner, costruttore_senza_parametri)
-{
-	c = new Conteiner();
 	ASSERT_FALSE(c.getCodice() == 10);
-	ASSERT_FALSE(c.getDescrizione() == 'b');
+	ASSERT_FALSE(c.getDescrizione() == "b");
 }
 
 TEST(Conteiner, metodo_Conteiner)
 {
-	c = new Container(0, 'a')
-
-	ASSERT_TRUE(c.getCodice() == 0);
-	ASSERT_TRUE(c.getDescrizione() == 'a');
+	Conteiner c = Conteiner();
+	ASSERT_FALSE(c.getCodice() == 1);
+	ASSERT_FALSE(c.getDescrizione() == "b");
 }
 
 TEST(Conteiner, metodo_Conteiner_con_parametri)
 {
-	c = new Container(10, 'c');
-	ASSERT_FALSE(c.getCodice == 0);
-	ASSERT_FALSE(c.getDescrizione == 'a');
+	Conteiner c = Conteiner(1, "b");
+	ASSERT_FALSE(c.getCodice() == 0);
+	ASSERT_FALSE(c.getDescrizione() == "a");
 }
 
 TEST(Conteiner, metodo_getCodice)
 {
 	Conteiner c;
-	ASSERT_TRUE(c.getCodice() == 0);
 	ASSERT_FALSE(c.getCodice() == 10);
 }
 
 TEST(Conteiner, metodo_getDescrizione)
 {
-	Conteiner c;
+	Conteiner c = Conteiner(0, "a");
 	ASSERT_FALSE(c.getDescrizione() == "A");
-	ASSERT_TRUE(c.getDescrizione() == "a");
 }
 //Test costruttore della classe Piazzola
-TEST(Piazzola, costruttore_piazzola) 
+TEST(Piazzola, costruttore_piazzola)
 {
-  Piazzola p;
-  ASSERT_TRUE(p.getNumContainer() == 0);
-  ASSERT_FALSE(p.getNumContainer() == 10);
+	Piazzola p;
+	ASSERT_TRUE(p.getNumContainer() == 0);
+	ASSERT_FALSE(p.getNumContainer() == 10);
 }
 
 //Test della funzione PushContainer della classe Piazzola
 TEST(Piazzola, push_container)
 {
-    Piazzola p;
-    ASSERT_LE(p.getNumContainer(), 5);
+	Piazzola p;
+	ASSERT_LE(p.getNumContainer(), 5);
 }
 
 //Test della funzione PushContainer della classe Piazzola
 TEST(Piazzola, pop_container)
 {
-    Piazzola p;
-    ASSERT_FALSE(p.getNumContainer() != 0);
+	Piazzola p;
+	ASSERT_FALSE(p.getNumContainer() != 0);
 }
 
-//Test della classe Piazzola che controlla se il container Ã¨ presente
+//Test della classe Piazzola che controlla se il container è presente
 TEST(Piazzola, test_controllo_se_container_e_presente)
 {
-    Piazzola p;
-    int codice_container = 0;
-    ASSERT_EQ(codice_container, p.getNumContainer());
+	Piazzola p;
+	int codice_container = 0;
+	ASSERT_EQ(codice_container, p.getNumContainer());
 }
