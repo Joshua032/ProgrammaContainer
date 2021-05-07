@@ -32,8 +32,7 @@ TEST(Conteiner, costruttoresenzaparametro)
 
 TEST(Conteiner, costruttoreconparametro)
 {
-	int codice = 10;
-	char descrizione = 'b';
+	c = new Conteiner(10, 'b');
 	ASSERT_TRUE(codice == 10);
 	ASSERT_TRUE(descrizione == 'b');
 }
