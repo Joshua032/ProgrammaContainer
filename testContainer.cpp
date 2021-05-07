@@ -58,4 +58,33 @@ TEST(Conteiner, metodo_getDescrizione)
 	Conteiner c;
 	ASSERT_FALSE(c.getDescrizione() == "A");
 }
+//Test costruttore della classe Piazzola
+TEST(Piazzola, costruttore_piazzola) 
+{
+  Piazzola p;
+  ASSERT_TRUE(p.getNumContainer() == 0);
 
+  ASSERT_FALSE(p.getNumContainer() == 10);
+}
+
+//Test della funzione PushContainer della classe Piazzola
+TEST(Piazzola, push_container)
+{
+    Piazzola p1;
+    ASSERT_LE(p1.getNumContainer(), 5);
+}
+
+//Test della funzione PushContainer della classe Piazzola
+TEST(Piazzola, pop_container)
+{
+    Piazzola p1;
+    ASSERT_FALSE(p1.getNumContainer() != 0);
+}
+
+//Test della classe Piazzola che controlla se il container è presente
+TEST(Piazzola, test_controllo_se_container_e_presente)
+{
+    Piazzola p1;
+    int codice_container = 0;
+    ASSERT_EQ(codice_container, p1.getNumContainer());
+}
